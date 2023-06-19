@@ -1,0 +1,324 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(41, 40, 40);
+}
+
+/* Header */
+.hero-sub-text{
+    background: linear-gradient(130deg, blueviolet, rgb(2, 133, 248));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+nav {
+    width: 90%;
+    margin: 0 auto;
+}
+
+nav button {
+    display: none;
+}
+nav .hide-bubble {
+    display: none;
+}
+
+nav ul li::after {
+    content: "";
+    height: 2px;
+    margin-top: 3px;
+    background-color: rgb(2, 133, 248);
+    display: block;
+    visibility: hidden;
+}
+nav ul li:hover::after {
+    visibility: visible;
+    animation: links .3s ease-out;
+}
+@keyframes links {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+nav .bubble {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgb(130, 10, 167);
+    display: none;
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    z-index: -1;
+    animation: bubble .6s ease-out forwards;
+}  
+.hero-container {
+    height: 91vh;
+}
+.hero-text {
+    
+}
+
+.image-container {
+    width: 500px;
+    overflow: hidden;
+    background-color: blueviolet;
+    border-radius: 10px 10px 50% 50%;
+    box-shadow: 0px 5px 40px 10px rgb(2, 133, 248);
+}
+.image-container img {
+    border-radius: 50%;
+}
+
+/* About section */
+#about {
+    text-align: center;
+}
+.about-container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Skills section */
+.html-percent {
+    width: 90%;
+}
+.css-percent {
+    width: 90%;
+}
+.javascript-percent {
+    width: 70%;
+}
+.react-percent {
+    width: 70%;
+}
+.node-percent {
+    width: 60%;
+}
+.express-percent {
+    width: 60%;
+}
+.mysql-percent {
+    width: 70%;
+}
+
+/* Projects section */
+.swiper {
+    width: 800px;
+    height: 500px;
+  }
+  
+  .swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  .swiper-slide:nth-child(1n) {
+    background-image: url("./assets/project1.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .slider {
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to bottom, rgb(194, 63, 63,0), rgb(0, 0, 0));
+    animation: projectHover .5s ease-out;
+  }
+
+  @keyframes projectHover {
+    from {
+    transform: translateY(300px);
+    }
+    to {
+        transform: translateY(0);
+    }
+  }
+
+  .hide {
+    animation: mouseOut .5s ease-out forwards;
+  }
+
+  @keyframes mouseOut {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(300px);
+    }
+  }
+
+  .swiper-slide:nth-child(2n) {
+    background-image: url('assets/project2.png');
+  }
+  
+  .swiper-slide:nth-child(3n) {
+    background-image: url('assets/project3.png');
+  }
+  
+  /* Footer section */
+  .footer {
+    height: 200px;
+    border-top: 1px solid rgb(2, 133, 248);
+  }
+
+/* Responsive */
+@media (max-width: 1022px) {
+    .image-container {
+        width: 300px;
+    }
+    .about-image img {
+        width: 300px;
+    }
+    .swiper {
+        width: 500px;
+        height: 300px;
+    }
+}
+
+@media (max-width: 799px) {
+    .hero-container {
+        flex-direction: column;
+        gap: 50px;
+        justify-content: center;
+        margin-bottom: 0;
+        height: 400px;
+    }
+    .image-container {
+        display: none;
+    }
+    .hero-text {
+        text-align: center;
+    }
+    .about-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+    .about-text p {
+        width: auto;
+    }
+    .about-text {
+        text-align: center;
+    }
+    .item-1 {
+        flex-direction: column;
+    }
+    .item-1 .education-image-1  {
+        justify-content: center;
+    }
+    .education-text-1 {
+        justify-content: center;
+    }
+    .item-2 {
+        flex-direction: column;
+    }
+    .item-2 .education-image-2 {
+        justify-content: center;
+    }
+    .education-text-2 {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 700px) { 
+    nav {
+        position: relative;
+    }
+    .hero-container {
+        overflow: hidden;
+    }
+    .brand p {
+        z-index: -2;
+        position: relative;
+    }
+    nav .link-container {
+        flex-direction: column;
+        position: absolute;
+        top: 35px;
+        right: -200px;
+        animation: navLink .6s ease-out forwards;
+    }
+    @keyframes navLink {
+        from {
+            right: 0;
+        }
+        to {
+            right: 200px;
+        }
+    }
+    nav button {
+        display: block;
+    }
+    nav .bubble {
+        display: block;
+    }  
+    @keyframes bubble {
+        from {
+            scale: 0;
+        }
+        to {
+            scale: 16;
+        }
+    }
+    .header-container {
+        overflow: hidden;
+    }
+    .hide-links {
+        display: none;
+    } 
+    .hero-text {
+        z-index: -2;
+    }
+    .footer-container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-container .hero-text .text-header {
+        font-size: 30px;
+    }
+    .hero-container .hero-text .text-sub-header {
+        font-size: 30px;
+    }
+    .hero-container .hero-text .text {
+        font-size: 18px;
+    }
+    .swiper {
+        width: 300px;
+        height: 500px;
+    }
+}
+
+@media (max-width: 450px) {
+    .swiper {
+        width: 250px;
+        height: 350px;
+    }
+}
+
